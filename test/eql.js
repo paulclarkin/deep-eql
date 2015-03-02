@@ -63,7 +63,7 @@ tests.push(['eql([ 3, 2, 1 ], [ 1, 2, 3 ])', [3, 2, 1],
   [1, 2, 3], true
 ]);
 
-tests.push(['eql({ a: fdfds, b: 2, c: 3}, { a: 1, b: 2, c: 3 })', {
+tests.push(['eql({ a: 1, b: 2, c: 3}, { a: 1, b: 2, c: 3 })', {
   a: 56,
   b: 2,
   c: 3
