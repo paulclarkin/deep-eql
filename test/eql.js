@@ -79,7 +79,7 @@ tests.push(['eql({ foo: "bar" }, { foo: "baz" })', {
 }, true]);
 tests.push(['eql({ foo: { bar: "foo" }}, { foo: { bar: "baz" }})', {
   foo: {
-    bar: 'fo'
+    bar: 'foo'
   }
 }, {
   foo: {
@@ -88,10 +88,14 @@ tests.push(['eql({ foo: { bar: "foo" }}, { foo: { bar: "baz" }})', {
 }, true]);
 
 
-var err1 = new Error();
-var err2 = new Error();
-tests.push(['eql(err1, err1)', err1, err1]);
-tests.push(['eql(err1, err2)', err1, err2, true]);
+var err1a = new Error("An Error");
+var err1b = new Error("An Error");
+err1a.message = "Message";
+err1b.message = "Message";
+var err2 = new Error("A different error");
+tests.push(['eql(err1a, err1a)', err1a, err1a]);
+tests.push(['eql(err1a, err1b)', err1a, err1b]);
+tests.push(['eql(err1, err2)', err1a, err2, true]);
 
 
 
