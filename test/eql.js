@@ -64,7 +64,7 @@ tests.push(['eql([ 3, 2, 1 ], [ 1, 2, 3 ])', [3, 2, 1],
 ]);
 
 tests.push(['eql({ a: 1, b: 2, c: 3}, { a: 1, b: 2, c: 3 })', {
-  a: 56,
+  a: 1,
   b: 2,
   c: 3
 }, {
@@ -86,6 +86,14 @@ tests.push(['eql({ foo: { bar: "foo" }}, { foo: { bar: "baz" }})', {
     bar: 'baz'
   }
 }, true]);
+
+
+var err1 = new Error();
+var err2 = new Error();
+tests.push(['eql(err1, err1)', err1, err1]);
+tests.push(['eql(err1, err2)', err1, err2, true]);
+
+
 
 /*!
  * Test setup
